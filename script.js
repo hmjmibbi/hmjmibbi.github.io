@@ -9,32 +9,33 @@ window.addEventListener('scroll', () => {
     }
 });
 
-<<<<<<< HEAD
-// Menu Hamburger untuk Mobile
-=======
-// Menu Hamburger untuk Mobile (Opsional/Dasar)
->>>>>>> 4fcf99d1e0dbf827f4b0d492741996e9e178c870
+// Menu Hamburger untuk Mobile (Responsif Sederhana)
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
 
-burger.addEventListener('click', () => {
-<<<<<<< HEAD
-=======
-    // Toggle nav
->>>>>>> 4fcf99d1e0dbf827f4b0d492741996e9e178c870
+});
     if (navLinks.style.display === 'flex') {
         navLinks.style.display = 'none';
     } else {
         navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '70px';
-        navLinks.style.right = '0';
-        navLinks.style.backgroundColor = '#0A2540';
-        navLinks.style.width = '100%';
-        navLinks.style.textAlign = 'center';
-        navLinks.style.padding = '20px 0';
-<<<<<<< HEAD
+    }
+});
+
+// Tutup menu saat link diklik (khusus mobile)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            navLinks.style.display = 'none';
+        }
+    });
+});
+
+// Reset tampilan menu saat resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        navLinks.style.display = 'flex';
+    } else {
+        navLinks.style.display = 'none';
     }
 });
 
@@ -57,14 +58,4 @@ function openTab(evt, tabId) {
     // Tampilkan tab saat ini dan tambahkan class 'active' ke tombol yang diklik
     document.getElementById(tabId).classList.add("active");
     evt.currentTarget.classList.add("active");
-}
-=======
-        
-        // Atur margin ulang untuk versi mobile
-        const listItems = document.querySelectorAll('.nav-links li');
-        listItems.forEach(item => {
-            item.style.margin = '15px 0';
-        });
-    }
-});
->>>>>>> 4fcf99d1e0dbf827f4b0d492741996e9e178c870
+// ...existing code...

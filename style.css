@@ -59,6 +59,43 @@ nav.scrolled {
     margin-left: 30px;
 }
 
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    nav {
+        padding: 10px 20px;
+    }
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: #0A2540;
+        display: none;
+        text-align: center;
+        padding: 20px 0;
+        z-index: 999;
+    }
+    .nav-links li {
+        margin: 15px 0;
+    }
+    .burger {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        height: 28px;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
 .nav-links a {
     color: white;
     text-decoration: none;
