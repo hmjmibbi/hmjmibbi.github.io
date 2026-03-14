@@ -10,10 +10,11 @@ window.addEventListener('scroll', () => {
 });
 
 // Menu Hamburger untuk Mobile (Responsif Sederhana)
+
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
 
-});
+burger.addEventListener('click', () => {
     if (navLinks.style.display === 'flex') {
         navLinks.style.display = 'none';
     } else {
@@ -58,4 +59,3 @@ function openTab(evt, tabId) {
     // Tampilkan tab saat ini dan tambahkan class 'active' ke tombol yang diklik
     document.getElementById(tabId).classList.add("active");
     evt.currentTarget.classList.add("active");
-// ...existing code...
