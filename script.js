@@ -59,3 +59,4 @@ function openTab(evt, tabId) {
     // Tampilkan tab saat ini dan tambahkan class 'active' ke tombol yang diklik
     document.getElementById(tabId).classList.add("active");
     evt.currentTarget.classList.add("active");
+}
