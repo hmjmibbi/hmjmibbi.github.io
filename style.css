@@ -1,4 +1,6 @@
-/* Reset & Base Styles */
+/* =========================================
+   Reset & Base Styles
+========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -12,31 +14,40 @@ body {
     color: #333;
 }
 
-/* Navigasi */
+/* =========================================
+   Navigasi (Navbar) & Logo
+========================================= */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background-color: #0A2540; /* Biru Dongker */
+    padding: 10px 50px;
+    background-color: #000000; /* Diubah menjadi Hitam agar menyatu dengan background logo JPG */
     color: white;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     transition: background 0.3s ease;
+    border-bottom: 2px solid #FFD700; /* Garis emas tipis di bawah navbar */
 }
 
 nav.scrolled {
-    background-color: #051525;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background-color: #111111;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: #FFD700; /* Emas */
+/* Pengaturan Ukuran Logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 50px; /* Ukuran ideal untuk navbar */
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .nav-links {
@@ -72,10 +83,12 @@ nav.scrolled {
     transition: all 0.3s ease;
 }
 
-/* Hero Section */
+/* =========================================
+   Hero Section (Beranda)
+========================================= */
 .hero-section {
     height: 100vh;
-    background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.8)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(10, 37, 64, 0.8)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,20 +114,24 @@ nav.scrolled {
 .btn {
     padding: 12px 30px;
     background-color: #FFD700;
-    color: #0A2540;
+    color: #000;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
     transition: background 0.3s;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
     background-color: #e6c200;
 }
 
-/* Sections Umum */
+/* =========================================
+   Sections Umum & Tentang Kami
+========================================= */
 section {
-    padding: 80px 20px;
+    padding: 100px 20px 80px 20px; /* Padding atas ditambahkan agar tidak tertutup navbar */
     text-align: center;
 }
 
@@ -124,7 +141,6 @@ section h2 {
     color: #0A2540;
 }
 
-/* Tentang Kami */
 .about-section p {
     max-width: 800px;
     margin: 0 auto 40px auto;
@@ -142,52 +158,128 @@ section h2 {
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     width: 350px;
 }
 
 .box h3 {
-    color: #FFD700;
+    color: #0A2540;
     margin-bottom: 15px;
+    border-bottom: 2px solid #FFD700;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-/* Program Kerja */
-.program-section {
+/* =========================================
+   Agenda & Kegiatan (Sistem Tab)
+========================================= */
+.events-section {
     background-color: #eef2f5;
 }
 
-.cards-container {
+.tabs {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 15px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
-    margin-top: 40px;
 }
 
-.card {
+.tab-btn {
+    padding: 10px 25px;
+    border: 2px solid #0A2540;
+    background-color: transparent;
+    color: #0A2540;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background-color: #0A2540;
+    color: white;
+}
+
+.tab-btn.active {
+    background-color: #0A2540;
+    color: #FFD700;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.event-card {
     background: white;
     padding: 30px;
     border-radius: 10px;
-    width: 300px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    border-left: 5px solid #FFD700;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.event-card h3 {
+    color: #0A2540;
+    margin-bottom: 10px;
+}
+
+.event-card p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.btn-register {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    margin-top: 10px;
+}
+
+.btn-register:hover {
+    background-color: #218838;
+}
+
+.dokum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.dokum-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #ddd;
     transition: transform 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-10px);
+.dokum-grid img:hover {
+    transform: scale(1.05);
 }
 
-.card h3 {
-    color: #0A2540;
-    margin-bottom: 15px;
-}
-
-/* Footer */
+/* =========================================
+   Footer & Sponsorship / Kerja Sama
+========================================= */
 footer {
     background-color: #0A2540;
     color: white;
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px 20px 20px;
 }
 
 footer h2 {
@@ -195,13 +287,70 @@ footer h2 {
     margin-bottom: 15px;
 }
 
-footer p {
-    margin-bottom: 10px;
-    font-size: 0.9rem;
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 900px;
+    margin: 40px auto;
+    flex-wrap: wrap;
+    text-align: left;
 }
 
-/* Responsive Design untuk HP */
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-info h3 {
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.collab-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.collab-form input, .collab-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+}
+
+.collab-form input:focus, .collab-form textarea:focus {
+    outline: 2px solid #FFD700;
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* =========================================
+   Responsive Design untuk HP
+========================================= */
 @media screen and (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+    }
     .nav-links {
         display: none;
     }
@@ -210,5 +359,192 @@ footer p {
     }
     .hero-content h1 {
         font-size: 2rem;
+    }
+    .contact-container {
+        flex-direction: column;
+    }
+}
+
+/* =========================================
+   Halaman Khusus Program & Kegiatan
+========================================= */
+
+/* Header Halaman Khusus */
+.page-header {
+    background: linear-gradient(rgba(10, 37, 64, 0.9), rgba(10, 37, 64, 0.9)), url('https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+    padding: 150px 20px 80px 20px;
+    text-align: center;
+    color: white;
+}
+
+.page-header h1 {
+    color: #FFD700;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    color: #0A2540;
+    font-size: 2.2rem;
+    display: inline-block;
+    border-bottom: 3px solid #FFD700;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* --- Program Akan Datang --- */
+.upcoming-section {
+    background-color: #f8f9fa;
+    padding: 80px 20px;
+}
+
+.agenda-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.agenda-card {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+    border: 1px solid #eee;
+}
+
+.agenda-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.agenda-date {
+    background-color: #0A2540;
+    color: #FFD700;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.agenda-date .day {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.agenda-date .month {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.agenda-info {
+    padding: 25px;
+    text-align: left;
+    flex: 1;
+}
+
+.agenda-info h3 {
+    color: #0A2540;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.agenda-meta {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.agenda-info p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* --- Program Sudah Lewat (Galeri Dokumentasi) --- */
+.past-section {
+    background-color: #eef2f5;
+    padding: 80px 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 250px;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: white;
+    padding: 20px;
+    text-align: left;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.gallery-overlay h3 {
+    color: #FFD700;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.gallery-overlay p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 0;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Responsif untuk HP */
+@media screen and (max-width: 768px) {
+    .agenda-card {
+        flex-direction: column;
+    }
+    .agenda-date {
+        min-height: 100px;
     }
 }
