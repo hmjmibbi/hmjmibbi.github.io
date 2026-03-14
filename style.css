@@ -44,7 +44,7 @@ nav.scrolled {
 }
 
 .logo-img {
-    height: 50px; /* Ukuran ideal untuk navbar */
+    height: 35px; /* Diperkecil agar tidak kebesaran */
     width: auto;
     object-fit: contain;
     display: block;
