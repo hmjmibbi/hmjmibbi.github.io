@@ -9,11 +9,19 @@ window.addEventListener('scroll', () => {
     }
 });
 
+<<<<<<< HEAD
 // Menu Hamburger untuk Mobile
+=======
+// Menu Hamburger untuk Mobile (Opsional/Dasar)
+>>>>>>> 4fcf99d1e0dbf827f4b0d492741996e9e178c870
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
 
 burger.addEventListener('click', () => {
+<<<<<<< HEAD
+=======
+    // Toggle nav
+>>>>>>> 4fcf99d1e0dbf827f4b0d492741996e9e178c870
     if (navLinks.style.display === 'flex') {
         navLinks.style.display = 'none';
     } else {
@@ -26,6 +34,7 @@ burger.addEventListener('click', () => {
         navLinks.style.width = '100%';
         navLinks.style.textAlign = 'center';
         navLinks.style.padding = '20px 0';
+<<<<<<< HEAD
     }
 });
 
@@ -49,3 +58,13 @@ function openTab(evt, tabId) {
     document.getElementById(tabId).classList.add("active");
     evt.currentTarget.classList.add("active");
 }
+=======
+        
+        // Atur margin ulang untuk versi mobile
+        const listItems = document.querySelectorAll('.nav-links li');
+        listItems.forEach(item => {
+            item.style.margin = '15px 0';
+        });
+    }
+});
+>>>>>>> 4fcf99d1e0dbf827f4b0d492741996e9e178c870
