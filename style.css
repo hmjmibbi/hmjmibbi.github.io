@@ -32,6 +32,11 @@ nav {
     border-bottom: 2px solid #FFD700; /* Garis emas tipis di bawah navbar */
 }
 
+.lang-switch {
+    display: flex;
+    gap: 5px;
+}
+
 nav.scrolled {
     background-color: #111111;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
@@ -59,6 +64,27 @@ nav.scrolled {
     margin-left: 30px;
 }
 
+.lang-switch {
+    display: flex;
+    gap: 5px;
+}
+
+.lang-btn {
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+.lang-btn.active {
+    background: #FFD700;
+    color: #000;
+    border-color: #FFD700;
+}
+
 /* Responsive Navbar */
 @media (max-width: 768px) {
     nav {
@@ -81,6 +107,27 @@ nav.scrolled {
     }
     .burger {
         display: block;
+    }
+    .lang-switch {
+        position: absolute;
+        right: 70px;
+        top: 10px;
+        display: flex;
+        gap: 5px;
+    }
+    .lang-btn {
+        border: 1px solid #fff;
+        background: transparent;
+        color: #fff;
+        padding: 5px 8px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.75rem;
+    }
+    .lang-btn.active {
+        background: #FFD700;
+        color: #000;
+        border-color: #FFD700;
     }
 }
 
