@@ -46,8 +46,8 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 window.addEventListener('resize', setNavDisplayByWidth);
 
 // Bahasa (Indonesia / English)
-const langIdBtn = document.getElementById('lang-id');
-const langEnBtn = document.getElementById('lang-en');
+let langIdBtn = null;
+let langEnBtn = null;
 
 const translations = {
     id: {
@@ -171,14 +171,30 @@ function applyLanguage(lang) {
     localStorage.setItem('hmjmLang', lang);
 }
 
+function initLanguageButtons() {
+    langIdBtn = document.getElementById('lang-id');
+    langEnBtn = document.getElementById('lang-en');
+
+    if (langIdBtn) {
+        langIdBtn.addEventListener('click', () => {
+            console.log('lang-id clicked');
+            applyLanguage('id');
+        });
+    }
+    if (langEnBtn) {
+        langEnBtn.addEventListener('click', () => {
+            console.log('lang-en clicked');
+            applyLanguage('en');
+        });
+    }
+}
+
 function initLanguage() {
     const savedLang = localStorage.getItem('hmjmLang') || 'id';
     applyLanguage(savedLang);
 }
 
-if (langIdBtn) langIdBtn.addEventListener('click', () => applyLanguage('id'));
-if (langEnBtn) langEnBtn.addEventListener('click', () => applyLanguage('en'));
-
+initLanguageButtons();
 initLanguage();
 
 // ==========================================
