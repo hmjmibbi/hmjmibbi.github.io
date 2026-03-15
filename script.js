@@ -10,15 +10,26 @@ window.addEventListener('scroll', () => {
 });
 
 // Menu Hamburger untuk Mobile (Responsif Sederhana)
-
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
 
-burger.addEventListener('click', () => {
-    if (navLinks.style.display === 'flex') {
-        navLinks.style.display = 'none';
-    } else {
+function setNavDisplayByWidth() {
+    if (window.innerWidth > 768) {
         navLinks.style.display = 'flex';
+    } else {
+        navLinks.style.display = 'none';
+    }
+}
+
+window.addEventListener('load', () => {
+    setNavDisplayByWidth();
+});
+
+burger.addEventListener('click', () => {
+    if (window.getComputedStyle(navLinks).display === 'none') {
+        navLinks.style.display = 'flex';
+    } else {
+        navLinks.style.display = 'none';
     }
 });
 
@@ -32,13 +43,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // Reset tampilan menu saat resize
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-        navLinks.style.display = 'flex';
-    } else {
-        navLinks.style.display = 'none';
-    }
-});
+window.addEventListener('resize', setNavDisplayByWidth);
 
 // ==========================================
 // FUNGSI BARU: Sistem Tab untuk Kegiatan
