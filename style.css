@@ -68,7 +68,7 @@ nav.scrolled {
     display: flex;
     gap: 5px;
     position: relative;
-    z-index: 1101;
+    z-index: 9999;
 }
 
 .lang-btn {
@@ -80,6 +80,7 @@ nav.scrolled {
     cursor: pointer;
     font-size: 0.75rem;
     pointer-events: auto;
+    display: inline-block;
 }
 
 .lang-btn.active {
